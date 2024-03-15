@@ -25,12 +25,12 @@ export default function Root() {
         <nav>
           {contacts.length ? (
             <ul>
-              {contacts.map((user) => (
-                <li key={user.id}>
-                  <Link to={`/contacts/${user.id}`}>
-                    {user.firstName || user.lastName ? (
+              {contacts.map((contact) => (
+                <li key={contact.id}>
+                  <Link to={`/contacts/${contact.id}`}>
+                    {contact.first || contact.last ? (
                       <>
-                        {user.firstName} {user.lastName}
+                        {contact.first} {contact.last}
                       </>
                     ) : (
                       <i>No Name</i>

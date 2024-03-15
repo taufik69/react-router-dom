@@ -1,8 +1,13 @@
-import { getContacts } from "../contact";
+import { getContacts, getContact } from "../contact";
 import axios from "axios";
-export async function rootLoader() {
+export async function Contactloader() {
   const contacts = await getContacts();
-  //   const contacts = await axios.get("https://dummyjson.com/users");
-  //   return { contacts: contacts.data.users };
   return { contacts };
+  // const contacts = await axios.get("https://dummyjson.com/users");
+  // return { contacts: contacts.data.users };
+}
+
+export async function getContactloader({ params }) {
+  const contact = await getContact(params.contactId);
+  return { contact };
 }

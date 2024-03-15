@@ -4,22 +4,33 @@ import "./index.css";
 import Root from "./Root";
 import ErrorPage from "./Error-page";
 import Contact from "./Contact-page";
-import { loader as rootLoader } from "./Loaders/ContactLoader";
-import { action as CreateContactAction } from "./Actions/ContactActions.jsx";
+import { Contactloader, getContactloader } from "./Loaders/ContactLoader";
+import {
+  CrateContactaction,
+  EditContactAction,
+} from "./Actions/ContactActions";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import EditContact from "./Editcontact";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
-    action: CreateContactAction,
+    loader: Contactloader,
+    action: CrateContactaction,
     children: [
       {
         path: "contacts/:contactId",
         element: <Contact />,
+        loader: getContactloader,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: "contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: getContactloader,
+        action: EditContactAction,
       },
     ],
   },

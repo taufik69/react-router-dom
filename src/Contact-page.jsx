@@ -1,15 +1,7 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
 export default function Contact() {
-  const contact = {
-    first: "Your",
-    last: "Name",
-    avatar:
-      "https://media.licdn.com/dms/image/D5603AQEdUCe22tOHpg/profile-displayphoto-shrink_800_800/0/1707155764546?e=2147483647&v=beta&t=Dq9ZJ-mt_paVm_YSDmTs0JhOJuGgGqOIzlIsvoSN2Ho",
-    twitter: "your_handle",
-    notes: "Some notes",
-    favorite: true,
-  };
+  const { contact } = useLoaderData();
 
   return (
     <div id="contact">
