@@ -1,8 +1,7 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
-
+import { Form, Link, Outlet, useLoaderData } from "react-router-dom";
 export default function Root() {
   const { contacts } = useLoaderData();
-  console.log(contacts);
+
   return (
     <>
       <div id="sidebar">
@@ -19,14 +18,14 @@ export default function Root() {
             <div id="search-spinner" aria-hidden hidden={true} />
             <div className="sr-only" aria-live="polite"></div>
           </form>
-          <form method="post">
+          <Form method="post">
             <button type="submit">New</button>
-          </form>
+          </Form>
         </div>
         <nav>
           {contacts.length ? (
             <ul>
-              {contacts?.slice(0, 4).map((user) => (
+              {contacts.map((user) => (
                 <li key={user.id}>
                   <Link to={`/contacts/${user.id}`}>
                     {user.firstName || user.lastName ? (
