@@ -7,10 +7,12 @@ import Contact from "./Contact-page";
 import { Contactloader, getContactloader } from "./Loaders/ContactLoader";
 import {
   CrateContactaction,
+  DeleteContactAction,
   EditContactAction,
 } from "./Actions/ContactActions";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EditContact from "./Editcontact";
+import Index from "./Index";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
     loader: Contactloader,
     action: CrateContactaction,
     children: [
+      {
+        index: true, // instead of path:""
+        element: <Index />,
+      },
       {
         path: "contacts/:contactId",
         element: <Contact />,
@@ -31,6 +37,11 @@ const router = createBrowserRouter([
         element: <EditContact />,
         loader: getContactloader,
         action: EditContactAction,
+      },
+      {
+        path: "contacts/:contactId/destroy",
+        action: DeleteContactAction,
+        errorElement: <div>Oops! There was an error.</div>,
       },
     ],
   },

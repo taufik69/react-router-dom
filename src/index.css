@@ -246,8 +246,12 @@ i {
 
 #detail.loading {
   opacity: 0.25;
-  transition: opacity 200ms;
-  transition-delay: 200ms;
+  transition: opacity 1000ms;
+  transition-delay: 1000ms;
+  -webkit-transition: opacity 1000ms;
+  -moz-transition: opacity 1000ms;
+  -ms-transition: opacity 1000ms;
+  -o-transition: opacity 1000ms;
 }
 
 #contact {

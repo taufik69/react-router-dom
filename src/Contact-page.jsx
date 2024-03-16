@@ -35,6 +35,7 @@ export default function Contact() {
           <Form action="edit">
             <button type="submit">Edit</button>
           </Form>
+
           <Form
             method="post"
             action="destroy"
@@ -46,7 +47,11 @@ export default function Contact() {
           >
             <button type="submit">Delete</button>
           </Form>
+
+          
         </div>
+
+
       </div>
     </div>
   );
